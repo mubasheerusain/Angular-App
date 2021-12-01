@@ -1,0 +1,19 @@
+<navbar is-authenticated="isAuthenticated" logout="logout()"></navbar>
+<div class="mt-5 mx-5 px-5">
+    <div ng-if="orders.length > 0" class="row mt-5 mx-5">
+        <div ng-repeat="order in orders" class="col-md-4 col-sm-6 my-3">
+            <div class="card border-primary shadow-sm" style="width: 18rem;">
+                <div class="card-header bg-primary text-white">
+                    Order - # {{ order._id }} - <a class="text-decoration-none text-white" role="button"
+                        ng-click="downloadInvoice(order._id)">Invoice</a>
+                </div>
+                <ul class="list-group list-group-flush" ng-repeat="prod in order.products">
+                    <li class="list-group-item text-primary">{{ prod.product.title }} ({{ prod.quantity }})</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div ng-if="orders.length === 0">
+        <h1>No orders available</h1>
+    </div>
+</div>

@@ -1,0 +1,14 @@
+<navbar is-authenticated="isAuthenticated" logout="logout()"></navbar>
+<div class="row align-items-center justify-content-center mt-5 mx-5 px-5">
+    <div class="col-md-4">
+        <img src="{{ product.imageUrl }}" class="img-fluid rounded-start">
+    </div>
+    <div class="col-md-8">
+        <h1>{{ product.title }}</h1>
+        <h2>$ {{ product.price }}</h2>
+        <p>{{ product.description }}</p>
+        <form ng-submit="submitCart(product._id)" method="POST" ng-if="isAuthenticated">
+            <button class="btn btn-outline-primary shadow-none" type="submit">Add to Cart</button>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,16 @@
+{
+  "name": "angular-app",
+  "version": "1.0.0",
+  "description": "My Practice Angular App",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "http-server -c-1 -o"
+  },
+  "author": "Mohamed Mubasheer Hussain",
+  "license": "ISC",
+  "dependencies": {
+    "@angular/cli": "^12.2.11",
+    "http-server": "^13.0.2"
+  }
+}

@@ -1,0 +1,21 @@
+<navbar is-authenticated="isAuthenticated" logout="logout()"></navbar>
+<div class="col-md-4 mx-auto mt-5">
+    <form ng-submit="signup()" autocomplete="off">
+        <div class="mb-3">
+            <label for="FormControlInput1" class="form-label">E-mail</label>
+            <input type="email" class="form-control shadow-none" id="FormControlInput1" placeholder="Email"
+                ng-model="email">
+        </div>
+        <div class="mb-3">
+            <label for="FormControlInput1" class="form-label">Password</label>
+            <input type="password" class="form-control shadow-none" id="FormControlInput2" placeholder="Password"
+                ng-model="password">
+        </div>
+        <div class="mb-3">
+            <label for="FormControlInput1" class="form-label">Confirm Password</label>
+            <input type="password" class="form-control shadow-none" id="FormControlInput2"
+                placeholder="Confirm Password" ng-model="confirmPassword">
+        </div>
+        <button class="btn btn-outline-primary shadow-none" type="submit">SignUp</button>
+    </form>
+</div>

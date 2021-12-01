@@ -1,0 +1,40 @@
+<navbar is-authenticated="isAuthenticated" logout="logout()"></navbar>
+<div class="row mt-5 mx-5">
+    <div class="col-md-6 col-sm-6 my-3" ng-if="products.length > 0" ng-repeat="product in products">
+        <div class="card text-center border-primary mx-auto" style="max-width: 18rem;">
+            <div class="card-header bg-primary text-white">
+                {{ product.title }}
+            </div>
+            <img src="/shop/images/{{ product.imageUrl }}" class="card-img-top" width="250" height="250"
+                alt="{{ product.title }}">
+            <div class="card-body">
+                <h5 class="card-title">$ {{ product.price }}</h5>
+                <p class="card-text text-truncate">{{ product.description }}</p>
+                <div class="d-flex justify-content-evenly">
+                    <div>
+                        <a href="#!product-details/{{product._id}}"
+                            class="btn btn-outline-primary shadow-none text-decoration-none">Details</a>
+                    </div>
+                    <div ng-if="isAuthenticated">
+                        <form ng-submit="submitCart(product._id)" method="POST">
+                            <button class="btn btn-outline-primary shadow-none" type="submit">Add to Cart</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div ng-if="products.length > 0" class="d-flex justify-content-center mt-3">
+        <a href="#!" ng-if="currentPage !== 1 && previousPage !== 1" class="mx-3 btn btn-outline-primary">1</a>
+        <a href="#!?page={{ previousPage }}" ng-if="hasPreviousPage" class="mx-3 btn btn-outline-primary">{{
+            previousPage }}</a>
+        <a href="#!?page={{ currentPage }}" class="mx-3 btn btn-outline-primary active">{{ currentPage }}</a>
+        <a href="#!?page={{ nextPage }}" ng-if="hasNextPage" class="mx-3 btn btn-outline-primary">{{ nextPage }}</a>
+        <a href="#!?page={{ lastPage }}" ng-if="lastPage !== currentPage && lastPage !== nextPage"
+            class="mx-3 btn btn-outline-primary">{{
+            lastPage }}</a>
+    </div>
+    <div ng-if="products.length === 0">
+        <h1>No Products</h1>
+    </div>
+</div>

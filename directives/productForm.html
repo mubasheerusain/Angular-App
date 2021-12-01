@@ -1,0 +1,30 @@
+<div class="row mt-5 mx-0">
+    <div class="col-md-4 mx-auto">
+        <form ng-submit="productSubmit()" autocomplete="off">
+            <div class="mb-3">
+                <label for="FormControlInput1" class="form-label">Title</label>
+                <input type="text" class="form-control shadow-none" id="FormControlInput1" placeholder="Title"
+                    ng-model="productTitle">
+            </div>
+            <div class="mb-3">
+                <label for="FormControlInput1" class="form-label">Image</label>
+                <input type="file" class="form-control shadow-none" id="FormControlInput1"
+                    demo-file-model="productImage" />
+            </div>
+            <div class="mb-3">
+                <label for="FormControlInput1" class="form-label">Price</label>
+                <input type="text" class="form-control shadow-none" id="FormControlInput1" placeholder="Price"
+                    ng-model="productPrice">
+            </div>
+            <div class="mb-3">
+                <label for="FormControlInput1" class="form-label">Description</label>
+                <textarea class="form-control shadow-none" id="FormControlInput1" placeholder="Description" rows="5"
+                    ng-model="productDescription"></textarea>
+            </div>
+            <div ng-if="productId">
+                <input type="hidden" class="form-control shadow-none" id="FormControlInput1" ng-model="productId">
+            </div>
+            <button class="btn btn-outline-primary shadow-none" type="submit">{{ buttonName }}</button>
+        </form>
+    </div>
+</div>

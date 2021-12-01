@@ -1,0 +1,42 @@
+<navbar is-authenticated="isAuthenticated" logout="logout()"></navbar>
+<div class="mt-5 mx-5 px-5">
+    <div ng-if="products.length > 0">
+        <div class="card w-50 text-center mx-auto shadow-sm mt-3" ng-repeat="product in products">
+            <div class="card-body row align-items-center justify-content-center px-0">
+                <div class="col">
+                    <h5 class="card-title">{{ product.productId.title }}</h5>
+                </div>
+                <div class="col">
+                    <h5 class="card-title">Quantity: {{ product.quantity }}</h5>
+                </div>
+                <div class="col">
+                    <form ng-submit="deleteProductCart(product.productId._id)" method="POST">
+                        <button class="btn btn-outline-danger shadow-none" type="submit">Delete</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <form ng-submit="placeOrder()" method="POST" class="d-flex justify-content-center mt-3">
+            <button class="btn btn-outline-primary shadow-none" type="submit">Order Now</button>
+        </form>
+    </div>
+    <div ng-if="products.length === 0">
+        <h1>No products available in cart currently.</h1>
+    </div>
+</div>
+
+<!-- <div class="mt-5">
+    <div ng-if="products.length > 0">
+        <ul ng-repeat="product in products">
+            <div>
+                <li>{{ product.title }} ({{ product.cartItem.quantity }})</li>
+                <form ng-submit="deleteProductCart(product.id)" method="POST">
+                    <button class="btn btn-outline-primary shadow-none" type="submit">Delete</button>
+                </form>
+            </div>
+        </ul>
+    </div>
+    <div ng-if="products.length === 0">
+        <h1>No products available in cart currently.</h1>
+    </div>
+</div> -->
